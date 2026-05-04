@@ -6,6 +6,21 @@
     <title>Keiracom — AI Engineering & Automation</title>
     <meta name="description" content="Small Sydney shop. We design, build, and ship production AI systems — agents, automations, full-stack apps. Most of what other teams quote in months, we ship in weeks.">
 
+    <!-- OG Meta Tags -->
+    <meta property="og:title" content="Keiracom — AI Engineering & Automation">
+    <meta property="og:description" content="We build production AI systems. Fast. Sydney-based AI engineering — agents, automations, full-stack apps.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://keiracom.com">
+    <meta property="og:locale" content="en_AU">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Keiracom — AI Engineering & Automation">
+    <meta name="twitter:description" content="We build production AI systems. Fast.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -14,15 +29,15 @@
         }
 
         :root {
-            --bg: #0C0A08;
-            --surface: #151311;
-            --surface-hover: #1a1816;
-            --text: #F7F3EE;
-            --text-muted: rgba(247, 243, 238, 0.65);
-            --accent: #10B981;
-            --accent-hover: #059669;
-            --border: rgba(247, 243, 238, 0.08);
-            --border-accent: rgba(16, 185, 129, 0.25);
+            --bg: #F7F3EE;
+            --surface: #FFFFFF;
+            --surface-hover: #EDE8E0;
+            --text: #0C0A08;
+            --text-muted: rgba(12, 10, 8, 0.65);
+            --accent: #D4956A;
+            --accent-hover: #C46A3E;
+            --border: rgba(12, 10, 8, 0.08);
+            --border-accent: rgba(212, 149, 106, 0.25);
         }
 
         html {
@@ -30,7 +45,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Arial, sans-serif;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.65;
@@ -61,7 +76,7 @@
         }
 
         .section-label {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
             font-weight: 400;
             letter-spacing: 0.18em;
@@ -101,7 +116,7 @@
             right: 0;
             z-index: 100;
             border-bottom: 1px solid var(--border);
-            background: rgba(12, 10, 8, 0.85);
+            background: rgba(247, 243, 238, 0.92);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -156,12 +171,12 @@
             transform: translateX(-50%);
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.07) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 149, 106, 0.07) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .hero-eyebrow {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -197,7 +212,7 @@
         .btn-primary {
             display: inline-block;
             background: var(--accent);
-            color: #0C0A08;
+            color: #F7F3EE;
             font-size: 0.9rem;
             font-weight: 700;
             padding: 13px 28px;
@@ -225,7 +240,7 @@
         }
 
         .btn-ghost:hover {
-            border-color: rgba(247, 243, 238, 0.25);
+            border-color: rgba(12, 10, 8, 0.25);
             color: var(--text);
             transform: translateY(-1px);
         }
@@ -252,7 +267,7 @@
         }
 
         .service-card-num {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -308,7 +323,7 @@
         }
 
         .step-num {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
             letter-spacing: 0.1em;
             color: var(--accent);
@@ -334,7 +349,7 @@
             padding: 28px 32px;
             border: 1px solid var(--border-accent);
             border-radius: 8px;
-            background: rgba(16, 185, 129, 0.04);
+            background: rgba(212, 149, 106, 0.04);
         }
 
         .process-note p {
@@ -344,24 +359,37 @@
         }
 
         /* ─── PROOF ─── */
+        .proof-section {
+            background: #0C0A08;
+            color: #F7F3EE;
+        }
+
+        .proof-section .section-label {
+            color: var(--accent);
+        }
+
+        .proof-section .section-headline {
+            color: #F7F3EE;
+        }
+
         .proof-list {
             list-style: none;
             margin-top: 48px;
             display: grid;
             gap: 0;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(247, 243, 238, 0.08);
             border-radius: 10px;
             overflow: hidden;
         }
 
         .proof-list li {
             padding: 22px 32px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(247, 243, 238, 0.08);
             display: flex;
             align-items: flex-start;
             gap: 16px;
             font-size: 0.92rem;
-            color: var(--text-muted);
+            color: rgba(247, 243, 238, 0.65);
             line-height: 1.65;
             transition: background 0.2s;
         }
@@ -371,7 +399,7 @@
         }
 
         .proof-list li:hover {
-            background: var(--surface);
+            background: rgba(247, 243, 238, 0.04);
         }
 
         .proof-list li::before {
@@ -390,17 +418,18 @@
         }
 
         .proof-stat {
-            background: var(--surface);
+            background: rgba(247, 243, 238, 0.04);
             padding: 32px 28px;
             text-align: center;
             transition: background 0.2s;
         }
 
         .proof-stat:hover {
-            background: var(--surface-hover);
+            background: rgba(247, 243, 238, 0.08);
         }
 
         .proof-stat-num {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 2.4rem;
             font-weight: 700;
             color: var(--accent);
@@ -410,15 +439,15 @@
         }
 
         .proof-stat-label {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: rgba(247, 243, 238, 0.65);
         }
 
         .proof-stats-wrap {
-            border: 1px solid var(--border);
+            border: 1px solid rgba(247, 243, 238, 0.08);
             border-radius: 10px;
             overflow: hidden;
             margin-top: 40px;
@@ -427,7 +456,7 @@
         .proof-cta-note {
             margin-top: 36px;
             font-size: 0.92rem;
-            color: var(--text-muted);
+            color: rgba(247, 243, 238, 0.65);
             line-height: 1.7;
         }
 
@@ -529,6 +558,7 @@
 
         /* ─── CONTACT ─── */
         .contact-section {
+            background: #0C0A08;
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -542,7 +572,7 @@
             transform: translate(-50%, -50%);
             width: 600px;
             height: 400px;
-            background: radial-gradient(ellipse, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(212, 149, 106, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -551,38 +581,44 @@
             z-index: 1;
         }
 
+        .contact-section .section-label {
+            color: var(--accent);
+        }
+
         .contact-section .section-headline {
             font-size: clamp(36px, 5vw, 60px);
+            color: #F7F3EE;
         }
 
         .contact-sub {
             font-size: 1.05rem;
-            color: var(--text-muted);
+            color: rgba(247, 243, 238, 0.65);
             margin-bottom: 44px;
         }
 
         .contact-email-link {
             display: inline-block;
-            color: var(--text);
+            color: #F7F3EE;
             font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
             padding: 16px 36px;
-            border: 1px solid var(--border-accent);
+            border: 1px solid rgba(212, 149, 106, 0.25);
             border-radius: 8px;
-            background: rgba(16, 185, 129, 0.06);
+            background: rgba(212, 149, 106, 0.06);
             transition: background 0.2s, border-color 0.2s, transform 0.15s;
         }
 
         .contact-email-link:hover {
-            background: rgba(16, 185, 129, 0.12);
-            border-color: rgba(16, 185, 129, 0.5);
+            background: rgba(212, 149, 106, 0.12);
+            border-color: rgba(212, 149, 106, 0.5);
             transform: translateY(-2px);
         }
 
         /* ─── FOOTER ─── */
         footer {
-            border-top: 1px solid var(--border);
+            background: #0C0A08;
+            border-top: 1px solid rgba(247, 243, 238, 0.08);
             padding: 32px 0;
         }
 
@@ -597,12 +633,12 @@
         .footer-logo {
             font-size: 0.9rem;
             font-weight: 700;
-            color: var(--text);
+            color: #F7F3EE;
         }
 
         .footer-right {
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: rgba(247, 243, 238, 0.65);
             text-align: right;
         }
 
@@ -759,7 +795,7 @@
     <div class="divider"></div>
 
     <!-- SECTION 03 — PROOF -->
-    <section class="section" id="proof">
+    <section class="section proof-section" id="proof">
         <div class="container">
             <div class="reveal">
                 <span class="section-label">03 — WHAT WE'VE BUILT</span>
