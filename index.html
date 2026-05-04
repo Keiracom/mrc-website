@@ -468,6 +468,106 @@
             line-height: 1.7;
         }
 
+        /* ─── PORTFOLIO ─── */
+        .portfolio-section {
+            background: var(--bg);
+        }
+
+        .portfolio-stack {
+            margin-top: 56px;
+            display: grid;
+            gap: 24px;
+        }
+
+        .portfolio-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            gap: 48px;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(12, 10, 8, 0.09);
+        }
+
+        .portfolio-card-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .portfolio-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .portfolio-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .portfolio-problem {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .portfolio-approach {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+
+        .portfolio-approach strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .stack-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        .stack-pill {
+            display: inline-block;
+            background: #FDF0E6;
+            color: #D4956A;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin: 3px 4px 3px 0;
+        }
+
+        .portfolio-diagram {
+            flex-shrink: 0;
+        }
+
+        .portfolio-diagram svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* ─── ABOUT ─── */
         .about-inner {
             max-width: 680px;
@@ -702,6 +802,16 @@
             .proof-list li {
                 padding: 18px 24px;
             }
+
+            .portfolio-card {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 28px 24px;
+            }
+
+            .portfolio-diagram {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -714,6 +824,7 @@
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#proof">Proof</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -838,17 +949,351 @@
 
     <div class="divider"></div>
 
-    <!-- SECTION 04 — ABOUT -->
+    <!-- SECTION 04 — PORTFOLIO -->
+    <section class="section portfolio-section" id="portfolio">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-label">04 — PORTFOLIO</span>
+                <h2 class="section-headline">Selected work.</h2>
+                <p class="section-sub">Recent projects we've delivered.</p>
+            </div>
+
+            <div class="portfolio-stack">
+
+                <!-- CARD 01 -->
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-card-left">
+                        <span class="portfolio-num">01</span>
+                        <h3 class="portfolio-title">Agentic AI Copilot for Financial Operations</h3>
+                        <p class="portfolio-problem">Financial services firm · AI-powered portfolio management interface</p>
+                        <p class="portfolio-approach">Built an agent layer on a read-only DB with tool-use API. A <strong>planner agent</strong> decomposes natural language queries, a <strong>SQL agent</strong> generates statements, a <strong>validator</strong> runs EXPLAIN before execution, and an executor returns structured results. Tool registry handles action verbs — rebalance, alert, export. Shipped in 4 weeks.</p>
+                        <div class="stack-pills">
+                            <span class="stack-pill">Python/FastAPI</span>
+                            <span class="stack-pill">Claude API</span>
+                            <span class="stack-pill">Postgres</span>
+                            <span class="stack-pill">pgvector</span>
+                            <span class="stack-pill">Docker</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-diagram">
+                        <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" aria-label="Agentic AI Copilot architecture diagram">
+                            <defs>
+                                <marker id="arrow1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 7 3.5, 0 7" fill="#0C0A08"/>
+                                </marker>
+                            </defs>
+                            <!-- User Query -->
+                            <rect x="10" y="80" width="72" height="40" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="46" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">User</text>
+                            <text x="46" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Query</text>
+                            <!-- Arrow -->
+                            <line x1="82" y1="100" x2="101" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow1)"/>
+                            <!-- Planner Agent -->
+                            <rect x="102" y="72" width="80" height="56" rx="6" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="142" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Planner</text>
+                            <text x="142" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Agent</text>
+                            <!-- Arrow -->
+                            <line x1="182" y1="100" x2="201" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow1)"/>
+                            <!-- SQL Generator -->
+                            <rect x="202" y="72" width="80" height="56" rx="6" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="242" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">SQL</text>
+                            <text x="242" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Generator</text>
+                            <!-- Arrow -->
+                            <line x1="282" y1="100" x2="301" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow1)"/>
+                            <!-- Validator -->
+                            <rect x="302" y="72" width="72" height="56" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="338" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Validator</text>
+                            <text x="338" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#6B6560" font-size="8">EXPLAIN</text>
+                            <!-- Arrow -->
+                            <line x1="374" y1="100" x2="393" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow1)"/>
+                            <!-- Results -->
+                            <rect x="394" y="72" width="96" height="56" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="442" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Results +</text>
+                            <text x="442" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Actions</text>
+                            <!-- Label row -->
+                            <text x="46" y="145" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">input</text>
+                            <text x="142" y="145" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#D4956A">decompose</text>
+                            <text x="242" y="145" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#D4956A">generate</text>
+                            <text x="338" y="145" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">safe?</text>
+                            <text x="442" y="145" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">execute</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- CARD 02 -->
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-card-left">
+                        <span class="portfolio-num">02</span>
+                        <h3 class="portfolio-title">RAG Search Over Internal Docs</h3>
+                        <p class="portfolio-problem">Professional services firm · Internal knowledge search platform</p>
+                        <p class="portfolio-approach">Built a hybrid search system over 50k+ internal documents. Ingestion pipeline chunks and embeds into a <strong>hybrid index</strong> combining BM25 keyword scoring with dense vector retrieval. Reranker resolves conflicts. Answer synthesis returns cited spans with source highlighting. Cut internal lookup time by 80%. Delivered in 6 weeks.</p>
+                        <div class="stack-pills">
+                            <span class="stack-pill">Python</span>
+                            <span class="stack-pill">Postgres + pgvector</span>
+                            <span class="stack-pill">OpenAI Embeddings</span>
+                            <span class="stack-pill">FastAPI</span>
+                            <span class="stack-pill">Next.js</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-diagram">
+                        <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" aria-label="RAG search architecture diagram">
+                            <defs>
+                                <marker id="arrow2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 7 3.5, 0 7" fill="#0C0A08"/>
+                                </marker>
+                            </defs>
+                            <!-- Documents -->
+                            <rect x="10" y="80" width="72" height="40" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="46" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Docs</text>
+                            <text x="46" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#6B6560">source</text>
+                            <!-- Arrow -->
+                            <line x1="82" y1="100" x2="101" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow2)"/>
+                            <!-- Chunker + Embedder -->
+                            <rect x="102" y="68" width="88" height="64" rx="6" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="146" y="93" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Chunker +</text>
+                            <text x="146" y="106" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Embedder</text>
+                            <text x="146" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">ingest</text>
+                            <!-- Arrow -->
+                            <line x1="190" y1="100" x2="209" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow2)"/>
+                            <!-- Hybrid Index -->
+                            <rect x="210" y="62" width="96" height="76" rx="6" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="258" y="88" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Hybrid Index</text>
+                            <line x1="222" y1="97" x2="294" y2="97" stroke="#D4956A" stroke-width="0.8" stroke-dasharray="3,2"/>
+                            <text x="258" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">BM25 | Vector</text>
+                            <text x="258" y="124" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">dense retrieval</text>
+                            <!-- Arrow -->
+                            <line x1="306" y1="100" x2="325" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow2)"/>
+                            <!-- Reranker -->
+                            <rect x="326" y="80" width="68" height="40" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="360" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Reranker</text>
+                            <text x="360" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">score</text>
+                            <!-- Arrow -->
+                            <line x1="394" y1="100" x2="413" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow2)"/>
+                            <!-- Answer + Citations -->
+                            <rect x="414" y="72" width="76" height="56" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="452" y="93" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Answer +</text>
+                            <text x="452" y="106" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Citations</text>
+                            <text x="452" y="119" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">verified</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- CARD 03 -->
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-card-left">
+                        <span class="portfolio-num">03</span>
+                        <h3 class="portfolio-title">AI-Powered Outbound Sales Pipeline</h3>
+                        <p class="portfolio-problem">Australian B2B agency · Multi-channel outbound automation platform</p>
+                        <p class="portfolio-approach">Built a complete outbound pipeline — discovery feeds an <strong>8-tier enrichment waterfall</strong>, CIS scoring picks the channel (email, voice, LinkedIn, SMS), and reply detection feeds back into scoring. The model keeps learning from real signal. Processes thousands of prospects daily across 5 channels. Shipped in 3 weeks, running in production since.</p>
+                        <div class="stack-pills">
+                            <span class="stack-pill">Python/FastAPI</span>
+                            <span class="stack-pill">Next.js</span>
+                            <span class="stack-pill">Supabase</span>
+                            <span class="stack-pill">Redis</span>
+                            <span class="stack-pill">Resend</span>
+                            <span class="stack-pill">Vapi</span>
+                            <span class="stack-pill">Telnyx</span>
+                            <span class="stack-pill">Prefect</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-diagram">
+                        <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" aria-label="Outbound sales pipeline architecture diagram">
+                            <defs>
+                                <marker id="arrow3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 7 3.5, 0 7" fill="#0C0A08"/>
+                                </marker>
+                                <marker id="arrow3b" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 7 3.5, 0 7" fill="#D4956A"/>
+                                </marker>
+                            </defs>
+                            <!-- Discovery -->
+                            <rect x="8" y="80" width="68" height="40" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="42" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Discovery</text>
+                            <text x="42" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">GMB / SERP</text>
+                            <!-- Arrow -->
+                            <line x1="76" y1="100" x2="93" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow3)"/>
+                            <!-- Enrichment -->
+                            <rect x="94" y="72" width="84" height="56" rx="6" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="136" y="95" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Enrichment</text>
+                            <text x="136" y="108" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">8 tiers</text>
+                            <text x="136" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">waterfall</text>
+                            <!-- Arrow -->
+                            <line x1="178" y1="100" x2="195" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow3)"/>
+                            <!-- Scoring -->
+                            <rect x="196" y="80" width="68" height="40" rx="6" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="230" y="97" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">CIS Score</text>
+                            <text x="230" y="110" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">0–100</text>
+                            <!-- Arrow -->
+                            <line x1="264" y1="100" x2="281" y2="100" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow3)"/>
+                            <!-- Channel Router -->
+                            <rect x="282" y="72" width="72" height="56" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="318" y="95" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Channel</text>
+                            <text x="318" y="108" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Router</text>
+                            <text x="318" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">select</text>
+                            <!-- Branches -->
+                            <line x1="354" y1="88" x2="380" y2="66" stroke="#0C0A08" stroke-width="1.2" marker-end="url(#arrow3)"/>
+                            <line x1="354" y1="96" x2="380" y2="96" stroke="#0C0A08" stroke-width="1.2" marker-end="url(#arrow3)"/>
+                            <line x1="354" y1="104" x2="380" y2="116" stroke="#0C0A08" stroke-width="1.2" marker-end="url(#arrow3)"/>
+                            <line x1="354" y1="112" x2="380" y2="146" stroke="#0C0A08" stroke-width="1.2" marker-end="url(#arrow3)"/>
+                            <!-- Channel boxes -->
+                            <rect x="381" y="52" width="52" height="28" rx="4" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.2"/>
+                            <text x="407" y="70" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08">Email</text>
+                            <rect x="381" y="82" width="52" height="28" rx="4" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.2"/>
+                            <text x="407" y="100" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08">Voice</text>
+                            <rect x="381" y="112" width="52" height="28" rx="4" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.2"/>
+                            <text x="407" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08">LinkedIn</text>
+                            <rect x="381" y="142" width="52" height="28" rx="4" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.2"/>
+                            <text x="407" y="160" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08">SMS</text>
+                            <!-- Feedback loop -->
+                            <path d="M 433 156 Q 460 180 460 100 Q 460 20 230 20 Q 180 20 180 72" stroke="#D4956A" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow3b)"/>
+                            <text x="460" y="185" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#D4956A">reply signal loops back</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- CARD 04 -->
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-card-left">
+                        <span class="portfolio-num">04</span>
+                        <h3 class="portfolio-title">Full-Stack SaaS for Vertical AI</h3>
+                        <p class="portfolio-problem">Healthcare technology startup · Patient management SaaS platform</p>
+                        <p class="portfolio-approach">Delivered a multi-tenant SaaS platform — Next.js frontend over FastAPI backend, Supabase for auth with <strong>row-level security</strong> for per-tenant isolation. Stripe for billing. AI features integrated as inline tools — summarise, score, suggest. Auth + dashboards + first AI feature live in 3 weeks. Full v1 in 6.</p>
+                        <div class="stack-pills">
+                            <span class="stack-pill">Next.js</span>
+                            <span class="stack-pill">FastAPI</span>
+                            <span class="stack-pill">Supabase</span>
+                            <span class="stack-pill">Stripe</span>
+                            <span class="stack-pill">Claude/OpenAI</span>
+                            <span class="stack-pill">Vercel + Railway</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-diagram">
+                        <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" aria-label="Full-stack SaaS architecture diagram">
+                            <defs>
+                                <marker id="arrow4" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 7 3.5, 0 7" fill="#0C0A08"/>
+                                </marker>
+                            </defs>
+                            <!-- Next.js Frontend -->
+                            <rect x="30" y="24" width="120" height="44" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="90" y="43" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Next.js Frontend</text>
+                            <text x="90" y="57" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">Vercel / CDN</text>
+                            <!-- Arrow down -->
+                            <line x1="90" y1="68" x2="90" y2="88" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow4)"/>
+                            <!-- Arrow up -->
+                            <line x1="96" y1="88" x2="96" y2="68" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow4)"/>
+                            <!-- FastAPI Backend -->
+                            <rect x="30" y="90" width="120" height="44" rx="6" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="90" y="109" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">FastAPI Backend</text>
+                            <text x="90" y="123" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">Railway</text>
+                            <!-- Arrow right to Supabase -->
+                            <line x1="150" y1="112" x2="189" y2="112" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow4)"/>
+                            <line x1="189" y1="118" x2="150" y2="118" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow4)"/>
+                            <!-- Supabase block -->
+                            <rect x="190" y="60" width="130" height="114" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="255" y="83" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#0C0A08" font-weight="700">Supabase</text>
+                            <line x1="200" y1="92" x2="310" y2="92" stroke="#D4956A" stroke-width="0.8" stroke-dasharray="3,2"/>
+                            <text x="255" y="107" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">Auth (RLS)</text>
+                            <line x1="200" y1="116" x2="310" y2="116" stroke="#D4956A" stroke-width="0.8" stroke-dasharray="3,2"/>
+                            <text x="255" y="131" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">Postgres</text>
+                            <line x1="200" y1="140" x2="310" y2="140" stroke="#D4956A" stroke-width="0.8" stroke-dasharray="3,2"/>
+                            <text x="255" y="157" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">Storage</text>
+                            <!-- AI Models -->
+                            <rect x="350" y="70" width="100" height="44" rx="6" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="400" y="89" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">AI Models</text>
+                            <text x="400" y="103" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">Claude / OpenAI</text>
+                            <!-- Arrow AI to Backend -->
+                            <line x1="350" y1="96" x2="155" y2="110" stroke="#D4956A" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow4)"/>
+                            <!-- Stripe -->
+                            <rect x="350" y="134" width="100" height="40" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="400" y="151" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Stripe</text>
+                            <text x="400" y="165" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">billing / webhooks</text>
+                            <!-- Arrow Stripe to Backend -->
+                            <line x1="350" y1="148" x2="155" y2="126" stroke="#0C0A08" stroke-width="1.2" marker-end="url(#arrow4)"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- CARD 05 -->
+                <div class="portfolio-card reveal">
+                    <div class="portfolio-card-left">
+                        <span class="portfolio-num">05</span>
+                        <h3 class="portfolio-title">Custom Workflow Automation Engine</h3>
+                        <p class="portfolio-problem">Data analytics company · Custom workflow orchestration engine</p>
+                        <p class="portfolio-approach">Built a Prefect-based workflow engine with a custom step library replacing their n8n/Zapier stack. <strong>Visual pipeline builder</strong> lets non-engineers wire steps without YAML. Built-in cost tracking, retry logic, and dead-letter queue. Observability via OpenTelemetry. Engine + first 5 step types delivered in 3 weeks, visual builder in 2 more.</p>
+                        <div class="stack-pills">
+                            <span class="stack-pill">Python</span>
+                            <span class="stack-pill">Prefect</span>
+                            <span class="stack-pill">FastAPI</span>
+                            <span class="stack-pill">Next.js</span>
+                            <span class="stack-pill">React Flow</span>
+                            <span class="stack-pill">Postgres</span>
+                            <span class="stack-pill">OpenTelemetry</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-diagram">
+                        <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" aria-label="Workflow automation engine architecture diagram">
+                            <defs>
+                                <marker id="arrow5" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 7 3.5, 0 7" fill="#0C0A08"/>
+                                </marker>
+                            </defs>
+                            <!-- Visual Builder -->
+                            <rect x="10" y="68" width="110" height="54" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="65" y="90" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Visual Builder</text>
+                            <text x="65" y="103" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">React Flow</text>
+                            <text x="65" y="115" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">drag + drop</text>
+                            <!-- Arrow -->
+                            <line x1="120" y1="95" x2="149" y2="95" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow5)"/>
+                            <!-- Prefect Engine -->
+                            <rect x="150" y="62" width="110" height="66" rx="6" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="205" y="87" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Prefect Engine</text>
+                            <text x="205" y="100" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">retry / DLQ</text>
+                            <text x="205" y="113" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#6B6560">cost tracking</text>
+                            <text x="205" y="122" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="#D4956A">orchestrate</text>
+                            <!-- Arrow -->
+                            <line x1="260" y1="95" x2="289" y2="95" stroke="#0C0A08" stroke-width="1.5" marker-end="url(#arrow5)"/>
+                            <!-- Step Library -->
+                            <rect x="290" y="56" width="90" height="78" rx="6" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.5"/>
+                            <text x="335" y="78" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#0C0A08" font-weight="600">Step Library</text>
+                            <!-- Branches -->
+                            <line x1="380" y1="72" x2="406" y2="58" stroke="#0C0A08" stroke-width="1.2" marker-end="url(#arrow5)"/>
+                            <line x1="380" y1="85" x2="406" y2="85" stroke="#0C0A08" stroke-width="1.2" marker-end="url(#arrow5)"/>
+                            <line x1="380" y1="98" x2="406" y2="110" stroke="#0C0A08" stroke-width="1.2" marker-end="url(#arrow5)"/>
+                            <line x1="380" y1="110" x2="406" y2="134" stroke="#0C0A08" stroke-width="1.2" marker-end="url(#arrow5)"/>
+                            <!-- Step type boxes -->
+                            <rect x="407" y="44" width="72" height="24" rx="4" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.2"/>
+                            <text x="443" y="60" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#0C0A08">API Call</text>
+                            <rect x="407" y="72" width="72" height="24" rx="4" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.2"/>
+                            <text x="443" y="88" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#0C0A08">Transform</text>
+                            <rect x="407" y="100" width="72" height="24" rx="4" fill="#FDF0E6" stroke="#D4956A" stroke-width="1.2"/>
+                            <text x="443" y="116" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#D4956A">AI Step</text>
+                            <rect x="407" y="128" width="72" height="24" rx="4" fill="#FFFFFF" stroke="#D4956A" stroke-width="1.2"/>
+                            <text x="443" y="144" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#0C0A08">Notify</text>
+                            <!-- Observability bar -->
+                            <rect x="10" y="162" width="470" height="28" rx="4" fill="rgba(212,149,106,0.06)" stroke="#D4956A" stroke-width="1" stroke-dasharray="4,3"/>
+                            <text x="245" y="180" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" fill="#D4956A" font-weight="600">Observability — OpenTelemetry traces + metrics across all steps</text>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 05 — ABOUT -->
     <section class="section" id="about">
         <div class="container">
             <div class="about-inner">
                 <div class="reveal">
-                    <span class="section-label">04 — WHO WE ARE</span>
+                    <span class="section-label">05 — WHO WE ARE</span>
                     <h2 class="section-headline">Sydney-based. Small team. AI-native.</h2>
                 </div>
                 <div class="about-body reveal">
                     <p>Sydney-based. Small team. AI-native — we use the same tools we sell.</p>
-                    <p>We're pre-revenue from a client perspective, which is the honest answer to a question you'd otherwise have to ask. Our first paying client gets a discount and a lot of attention. Could be you.</p>
+                    <p>We take on a handful of projects at a time. Each one gets our full attention — no account managers, no handoffs to juniors. You work directly with the people writing the code.</p>
                     <p>ABN on file. SPAM Act compliant. Australian English throughout (we don't "leverage" things).</p>
                 </div>
             </div>
@@ -857,11 +1302,11 @@
 
     <div class="divider"></div>
 
-    <!-- SECTION 05 — FAQ -->
+    <!-- SECTION 06 — FAQ -->
     <section class="section faq-section" id="faq">
         <div class="container">
             <div class="reveal">
-                <span class="section-label">05 — FAQ</span>
+                <span class="section-label">06 — FAQ</span>
                 <h2 class="section-headline">The hard questions.</h2>
             </div>
             <div class="faq-list reveal">
@@ -885,11 +1330,11 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        <span>You said pre-revenue. Why should I trust you with my money?</span>
+                        <span>You're a small team. Can you handle real projects?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" role="region">
-                        <div class="faq-answer-inner">Because the system you're hiring us to build, we already built for ourselves. It works. We're not learning on you — we're applying what already runs.</div>
+                        <div class="faq-answer-inner">Small team is the point. The systems you're hiring us to build — we already built for ourselves. Agency OS runs 15+ agents in production daily. We're not learning on you — we're applying what already works.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -916,12 +1361,12 @@
 
     <div class="divider"></div>
 
-    <!-- SECTION 06 — CONTACT -->
+    <!-- SECTION 07 — CONTACT -->
     <section class="section contact-section" id="contact">
         <div class="container">
             <div class="contact-inner">
                 <div class="reveal">
-                    <span class="section-label">06 — CONTACT</span>
+                    <span class="section-label">07 — CONTACT</span>
                     <h2 class="section-headline">Let's talk.</h2>
                     <p class="contact-sub">Replies same day.</p>
                     <a href="mailto:david.stephens@keiracom.com" class="contact-email-link">david.stephens@keiracom.com</a>
