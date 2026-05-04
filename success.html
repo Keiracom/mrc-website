@@ -3,93 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Marketing Reality Check!</title>
+    <title>Thanks for reaching out — Keiracom</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f8f9fa;
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            background: #0f172a;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            color: white;
+            padding: 24px;
         }
-        .success-container {
-            background: #2d3748;
-            padding: 50px;
+
+        .card {
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            max-width: 600px;
+            padding: 56px 48px;
+            max-width: 560px;
+            width: 100%;
             text-align: center;
         }
-        .checkmark {
-            font-size: 72px;
-            color: #10B981;
-            margin-bottom: 20px;
+
+        .mark {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            display: block;
         }
+
         h1 {
             color: white;
-            margin-bottom: 20px;
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 16px;
         }
+
         p {
-            color: #e2e8f0;
-            line-height: 1.6;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            font-size: 1rem;
         }
-        .next-steps {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid #10B981;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-            text-align: left;
-        }
-        .next-steps h3 {
+
+        .email-link {
             color: #10B981;
-            margin-top: 0;
+            text-decoration: none;
         }
-        .next-steps ul {
-            color: #e2e8f0;
+
+        .email-link:hover {
+            text-decoration: underline;
         }
-        .next-steps li {
-            margin: 10px 0;
-        }
-        .cta-button {
+
+        .home-link {
             display: inline-block;
+            margin-top: 32px;
             background: #10B981;
             color: white;
-            padding: 15px 30px;
+            padding: 13px 28px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 20px;
-            transition: transform 0.3s ease;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease;
         }
-        .cta-button:hover {
+
+        .home-link:hover {
             transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
-    <div class="success-container">
-        <div class="checkmark">✅</div>
-        <h1>Welcome to Marketing Reality Check!</h1>
-        <p>Your subscription is active and we're already analyzing your competitors.</p>
-        
-        <div class="next-steps">
-            <h3>What happens next:</h3>
-            <ul>
-                <li>✓ You'll receive a welcome email within 5 minutes</li>
-                <li>✓ We'll send a quick questionnaire to identify your competitors</li>
-                <li>✓ Your first intelligence report arrives within 24 hours</li>
-                <li>✓ Monthly reports deliver on this date each month</li>
-            </ul>
-        </div>
-        
-        <p><strong>Questions?</strong> Email us at hello@keiracom.com</p>
-        
-        <a href="/" class="cta-button">Return to Homepage</a>
+    <div class="card">
+        <span class="mark">✓</span>
+        <h1>Thanks for reaching out.</h1>
+        <p>We'll get back to you directly. No auto-responder, no sales sequence — just a reply from a human.</p>
+        <p>In the meantime, email us at <a href="mailto:david.stephens@keiracom.com" class="email-link">david.stephens@keiracom.com</a> if you have something specific to share.</p>
+        <a href="/" class="home-link">Back to Keiracom</a>
     </div>
 </body>
 </html>

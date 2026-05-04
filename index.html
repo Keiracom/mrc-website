@@ -3,837 +3,660 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing Reality Check - Competitive Intelligence Subscriptions for Australian Business</title>
-    <meta name="description" content="Track your competitors monthly with Australian-built marketing intelligence. Choose the right plan for your business size. No lock-in contracts.">
-    
-    <!-- Stripe JavaScript - Load directly -->
-    <script src="https://js.stripe.com/v3/"></script>
-    
+    <title>Keiracom — AI Engineering & Automation</title>
+    <meta name="description" content="We build production AI systems. Fast. Sydney-based AI engineering consultancy specialising in LLM integration, full-stack web apps, workflow automation, and voice AI.">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
             background: #ffffff;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
-        
+
+        /* HERO */
         .hero {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f2a1e 100%);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0 90px;
             text-align: center;
         }
-        
+
+        .hero-eyebrow {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #10B981;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+        }
+
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.6rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            margin-bottom: 22px;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
         }
-        
+
+        .hero h1 span {
+            color: #10B981;
+        }
+
         .hero .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
             opacity: 0.9;
-            font-weight: 300;
+            font-weight: 400;
         }
-        
+
         .hero .description {
             font-size: 1.1rem;
-            margin-bottom: 50px;
-            opacity: 0.8;
-            max-width: 600px;
+            margin-bottom: 48px;
+            opacity: 0.7;
+            max-width: 560px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
-        
+
         .cta-primary {
             display: inline-block;
             background: linear-gradient(135deg, #10B981, #059669);
             color: white;
-            padding: 18px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin: 10px;
-        }
-        
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
-        }
-        
-        .cta-secondary {
-            display: inline-block;
-            background: transparent;
-            color: white;
-            border: 2px solid white;
             padding: 16px 38px;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            transition: all 0.3s ease;
-            margin: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        
-        .cta-secondary:hover {
-            background: white;
-            color: #1e293b;
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(16, 185, 129, 0.35);
         }
-        
-        .trust-indicators {
-            background: #f8f9fa;
-            padding: 60px 0;
-            text-align: center;
+
+        /* PROOF STATS BAR */
+        .stats-bar {
+            background: #f0fdf4;
+            border-top: 1px solid #d1fae5;
+            border-bottom: 1px solid #d1fae5;
+            padding: 40px 0;
         }
-        
-        .trust-stats {
+
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-        
-        .stat {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
             text-align: center;
         }
-        
+
+        .stats-grid .stat {
+            padding: 10px 20px;
+            border-right: 1px solid #d1fae5;
+        }
+
+        .stats-grid .stat:last-child {
+            border-right: none;
+        }
+
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: #10B981;
             display: block;
+            line-height: 1;
+            margin-bottom: 6px;
         }
-        
+
         .stat-label {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #6b7280;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        .problem-section {
-            padding: 80px 0;
-            background: white;
-        }
-        
+
+        /* SECTION SHARED */
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 56px;
         }
-        
+
         .section-header h2 {
-            font-size: 2.5rem;
-            color: #1e293b;
-            margin-bottom: 20px;
+            font-size: 2.4rem;
+            color: #0f172a;
+            margin-bottom: 16px;
+            font-weight: 700;
         }
-        
+
         .section-header p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #6b7280;
-            max-width: 600px;
+            max-width: 560px;
             margin: 0 auto;
         }
-        
-        .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .problem-card {
-            background: #fef2f2;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid #ef4444;
-        }
-        
-        .problem-card h3 {
-            color: #dc2626;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-        
-        .pricing-section {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-            align-items: start;
-        }
-        
-        .pricing-card {
+
+        /* SERVICES */
+        .services-section {
+            padding: 88px 0;
             background: white;
-            padding: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .service-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 36px 32px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
-        
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+
+        .service-card:hover {
+            border-color: #10B981;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.1);
         }
-        
-        .pricing-card.popular {
-            border: 2px solid #10B981;
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
         }
-        
-        .pricing-card.popular::before {
-            content: "MOST POPULAR";
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: #10B981;
-            color: white;
-            padding: 5px 40px;
-            font-size: 0.9rem;
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: #0f172a;
+            margin-bottom: 12px;
             font-weight: 600;
-            transform: rotate(45deg);
         }
-        
-        .pricing-card.coming-soon::before {
-            content: "WEEK 9";
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: #f59e0b;
-            color: white;
-            padding: 5px 40px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transform: rotate(45deg);
+
+        .service-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.65;
         }
-        
-        .tier-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+
+        .service-tags {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
-        
-        .tier-badge.startup {
+
+        .tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .tag.green {
             background: #dcfce7;
             color: #166534;
         }
-        
-        .tier-badge.growth {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-        
-        .tier-badge.enterprise {
+
+        .tag.amber {
             background: #fef3c7;
             color: #92400e;
         }
-        
-        .pricing-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #1e293b;
+
+        .tag.purple {
+            background: #f3e8ff;
+            color: #6b21a8;
         }
-        
-        .pricing-price {
-            font-size: 3rem;
+
+        /* PROOF OF WORK */
+        .proof-section {
+            padding: 88px 0;
+            background: #0f172a;
+            color: white;
+        }
+
+        .proof-section .section-header h2 {
+            color: white;
+        }
+
+        .proof-section .section-header p {
+            color: #94a3b8;
+        }
+
+        .proof-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 28px;
+        }
+
+        .proof-card h3 {
+            font-size: 1.3rem;
+            color: #10B981;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .proof-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .proof-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            font-size: 0.98rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .proof-list li:last-child {
+            border-bottom: none;
+        }
+
+        .proof-list li::before {
+            content: "→";
+            color: #10B981;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+
+        .proof-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .proof-stat {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .proof-stat .num {
+            font-size: 2.2rem;
             font-weight: 700;
             color: #10B981;
-            margin: 20px 0;
+            display: block;
+            line-height: 1;
+            margin-bottom: 6px;
         }
-        
-        .pricing-price span {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #6b7280;
+
+        .proof-stat .label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
         }
-        
-        .pricing-card ul {
-            text-align: left;
-            margin: 20px 0;
-            padding-left: 20px;
+
+        /* ABOUT */
+        .about-section {
+            padding: 88px 0;
+            background: #f8fafc;
         }
-        
-        .pricing-card li {
-            margin: 10px 0;
-            color: #4b5563;
+
+        .about-inner {
+            max-width: 760px;
+            margin: 0 auto;
         }
-        
-        .pricing-cta {
+
+        .about-inner h2 {
+            font-size: 2.4rem;
+            color: #0f172a;
+            margin-bottom: 28px;
+            font-weight: 700;
+        }
+
+        .about-inner p {
+            font-size: 1.05rem;
+            color: #374151;
+            margin-bottom: 20px;
+            line-height: 1.75;
+        }
+
+        .about-inner p strong {
+            color: #0f172a;
+        }
+
+        .about-callout {
+            background: white;
+            border-left: 4px solid #10B981;
+            border-radius: 0 8px 8px 0;
+            padding: 20px 24px;
+            margin: 28px 0;
+            font-size: 1.05rem;
+            color: #374151;
+            font-style: italic;
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #dcfce7;
+            color: #166534;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 8px;
+        }
+
+        .availability-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10B981;
             display: inline-block;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            padding: 88px 0;
             background: linear-gradient(135deg, #10B981, #059669);
             color: white;
-            padding: 15px 30px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .contact-section p {
+            font-size: 1.15rem;
+            margin-bottom: 36px;
+            opacity: 0.9;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-email {
+            display: inline-block;
+            background: white;
+            color: #059669;
+            padding: 16px 40px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: transform 0.3s ease;
-            width: 100%;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .pricing-cta:hover {
-            transform: translateY(-2px);
-        }
-        
-        .pricing-cta.secondary {
-            background: transparent;
-            border: 2px solid #10B981;
-            color: #10B981;
-        }
-        
-        .pricing-cta.disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .competitor-limit {
-            font-weight: 600;
-            color: #1e293b;
             font-size: 1.1rem;
-            margin: 10px 0;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        
-        .delivery-method {
-            background: #f3f4f6;
-            padding: 10px;
-            border-radius: 6px;
-            margin: 15px 0;
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-note {
+            margin-top: 20px;
+            opacity: 0.8;
             font-size: 0.9rem;
         }
-        
-        .why-us-section {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .feature-card {
-            text-align: center;
-            padding: 30px;
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.3rem;
-            color: #1e293b;
-            margin-bottom: 15px;
-        }
-        
-        .testimonials-section {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        
-        .testimonial {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 600px;
-            margin: 40px auto;
-        }
-        
-        .testimonial-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #4b5563;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: #1e293b;
-        }
-        
-        .cta-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #10B981, #059669);
-            color: white;
-            text-align: center;
-        }
-        
+
+        /* FOOTER */
         .footer {
-            background: #1e293b;
+            background: #0f172a;
             color: white;
-            padding: 40px 0;
+            padding: 36px 0;
             text-align: center;
         }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-section h4 {
-            margin-bottom: 20px;
-            color: #10B981;
-        }
-        
-        .footer-section a {
-            color: #9ca3af;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
+
         .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 20px;
-            color: #9ca3af;
+            color: #64748b;
+            font-size: 0.9rem;
         }
-        
+
+        .footer-bottom a {
+            color: #10B981;
+            text-decoration: none;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.4rem;
             }
-            
+
             .hero .subtitle {
                 font-size: 1.2rem;
             }
-            
-            .container {
-                padding: 0 15px;
-            }
-            
-            .pricing-card.popular::before,
-            .pricing-card.coming-soon::before {
-                right: -35px;
-                padding: 5px 35px;
-            }
-            
-            .pricing-grid {
+
+            .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid .stat {
+                border-right: none;
+                border-bottom: 1px solid #d1fae5;
+                padding: 20px;
+            }
+
+            .stats-grid .stat:last-child {
+                border-bottom: none;
+            }
+
+            .proof-stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 16px;
             }
         }
     </style>
 </head>
 <body>
+
     <header class="hero">
         <div class="container">
-            <h1>Your Competitors Change Monthly.<br>Shouldn't Your Intelligence?</h1>
-            <p class="subtitle">Track competitors with the right plan for your business size</p>
+            <div class="hero-eyebrow">Sydney, Australia</div>
+            <h1>Keiracom —<br><span>AI Engineering</span> & Automation</h1>
+            <p class="subtitle">We build production AI systems. Fast.</p>
             <p class="description">
-                One-time audits get stale in weeks. We built subscription intelligence that grows with your business.
-                From startup to enterprise, get the competitive insights you need, when you need them. 
-                100% Australian-built, no lock-in contracts.
+                Not demos. Not prototypes. Production software that runs every day —
+                agents, pipelines, full-stack apps, and voice AI.
             </p>
-            <a href="#pricing" class="cta-primary">Find Your Plan</a>
-            <a href="#how-it-works" class="cta-secondary">How It Works</a>
+            <a href="#contact" class="cta-primary">Get in touch</a>
         </div>
     </header>
 
-    <section class="trust-indicators">
+    <div class="stats-bar">
         <div class="container">
-            <h2 style="color: #1e293b; margin-bottom: 20px;">Built for Every Stage of Australian Business</h2>
-            <p style="color: #6b7280; font-size: 1.1rem;">
-                Whether you're a startup tracking 3 competitors or an enterprise monitoring the entire market,
-                we have the right intelligence subscription for you.
-            </p>
-            <div class="trust-stats">
+            <div class="stats-grid">
                 <div class="stat">
-                    <span class="stat-number">$2.1M</span>
-                    <span class="stat-label">Waste Identified</span>
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">AI agents in production</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">3 Tiers</span>
-                    <span class="stat-label">To Match Your Growth</span>
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Distribution channels</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">24hrs</span>
-                    <span class="stat-label">First Report Delivery</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Month-to-Month</span>
+                    <span class="stat-number">10-tier</span>
+                    <span class="stat-label">Enrichment waterfall</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="problem-section">
+    <section class="services-section">
         <div class="container">
             <div class="section-header">
-                <h2>One-Time Audits Are Dead</h2>
-                <p>Your competitors update their strategies weekly. Why are you working with outdated intelligence?</p>
+                <h2>What we build</h2>
+                <p>Four areas. All production-grade. No hand-holding required on your side.</p>
             </div>
-            <div class="problems-grid">
-                <div class="problem-card">
-                    <h3>🎯 Static Reports Get Stale Fast</h3>
-                    <p>That $2,000 audit from 3 months ago? It's already obsolete. Competitors pivot weekly, not yearly.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🤖</span>
+                    <h3>AI / LLM Integration</h3>
+                    <p>AI agents that do real work. RAG pipelines over your own data. LLM-powered workflows that replace manual processes and keep running when you're not watching.</p>
+                    <div class="service-tags">
+                        <span class="tag green">AI Agents</span>
+                        <span class="tag green">RAG Pipelines</span>
+                        <span class="tag green">Claude / GPT</span>
+                        <span class="tag green">Multi-agent orchestration</span>
+                    </div>
                 </div>
-                <div class="problem-card">
-                    <h3>💸 No Dashboard, No Insights</h3>
-                    <p>Email reports pile up unread. Without a dashboard, you're flying blind between updates.</p>
+
+                <div class="service-card">
+                    <span class="service-icon">⚙️</span>
+                    <h3>Full-Stack Web Apps</h3>
+                    <p>Front to back. React / Next.js interfaces, Python / FastAPI backends, Supabase for data and auth. Deployed, monitored, production-ready.</p>
+                    <div class="service-tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Supabase</span>
+                        <span class="tag">Vercel / Railway</span>
+                    </div>
                 </div>
-                <div class="problem-card">
-                    <h3>🤔 Wrong Size Solutions</h3>
-                    <p>Enterprise tools for startups? Startup tools for growth companies? Get intelligence that fits your stage.</p>
+
+                <div class="service-card">
+                    <span class="service-icon">🔄</span>
+                    <h3>Workflow Automation</h3>
+                    <p>Multi-step data pipelines that run on a schedule. API integrations stitched together properly. Prefect for orchestration, n8n where it fits. No brittle scripts.</p>
+                    <div class="service-tags">
+                        <span class="tag amber">Prefect</span>
+                        <span class="tag amber">n8n</span>
+                        <span class="tag amber">Data Pipelines</span>
+                        <span class="tag amber">API Integration</span>
+                    </div>
                 </div>
-                <div class="problem-card">
-                    <h3>📊 Paying for What You Don't Need</h3>
-                    <p>Why track 50 competitors when you have 3? Why get daily alerts when weekly works? Right-size your intelligence.</p>
+
+                <div class="service-card">
+                    <span class="service-icon">📞</span>
+                    <h3>Voice AI & Outreach</h3>
+                    <p>Voice agents that handle real conversations. Multi-channel outreach across email, LinkedIn, SMS, and voice. Lead gen systems that actually qualify and follow up.</p>
+                    <div class="service-tags">
+                        <span class="tag purple">Voice Agents</span>
+                        <span class="tag purple">Email / LinkedIn</span>
+                        <span class="tag purple">SMS</span>
+                        <span class="tag purple">Lead Gen</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pricing-section" id="pricing">
+    <section class="proof-section">
         <div class="container">
             <div class="section-header">
-                <h2>Choose Your Intelligence Level</h2>
-                <p>Start where you are, upgrade as you grow. Change or cancel anytime.</p>
+                <h2>What we've built</h2>
+                <p>One example. Our own outbound sales platform — built in-house to prove the stack before offering it to anyone else.</p>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <span class="tier-badge startup">Startup</span>
-                    <h3>Essential Intelligence</h3>
-                    <div class="pricing-price">$297<span>/month</span></div>
-                    <p class="competitor-limit">Track 1-3 Competitors</p>
-                    <div class="delivery-method">📧 Monthly Email Reports</div>
-                    <ul>
-                        <li>✓ Comprehensive monthly competitor analysis</li>
-                        <li>✓ Keyword opportunities they're missing</li>
-                        <li>✓ Traffic source breakdowns</li>
-                        <li>✓ Content strategy insights</li>
-                        <li>✓ Budget estimates and market gaps</li>
-                        <li>✓ Strategic recommendations</li>
-                        <li>✓ Perfect for focused competition</li>
-                    </ul>
-                    <button class="pricing-cta" onclick="buyPlan(event, 'startup')">Start Tracking Today</button>
-                    <p style="font-size: 0.9rem; color: #6b7280; margin-top: 15px;">No setup fees • Cancel anytime</p>
-                </div>
 
-                <div class="pricing-card popular">
-                    <span class="tier-badge growth">Growth</span>
-                    <h3>Intelligence Hub</h3>
-                    <div class="pricing-price">$697<span>/month</span></div>
-                    <p class="competitor-limit">Track 5-10 Competitors</p>
-                    <div class="delivery-method">📧 Weekly Alerts + 📊 Dashboard</div>
-                    <ul>
-                        <li>✓ Everything in Startup PLUS:</li>
-                        <li>✓ <strong>Custom web dashboard access</strong></li>
-                        <li>✓ Weekly intelligence alerts (7-10)</li>
-                        <li>✓ Real-time competitor tracking</li>
-                        <li>✓ Interactive charts and trends</li>
-                        <li>✓ Alert customization controls</li>
-                        <li>✓ Mobile-responsive dashboard</li>
-                        <li>✓ Priority email support</li>
-                    </ul>
-                    <button class="pricing-cta" onclick="buyPlan(event, 'growth')">Get Your Dashboard</button>
-                    <p style="font-size: 0.9rem; color: #6b7280; margin-top: 15px;">Most popular choice • 30-day guarantee</p>
-                </div>
+            <div class="proof-card">
+                <h3>Agency OS — Outbound Sales Automation Platform</h3>
+                <ul class="proof-list">
+                    <li>15+ orchestrated AI agents running in production — discovery, enrichment, scoring, personalisation, outreach</li>
+                    <li>Multi-channel outreach across email, LinkedIn, voice calls, and SMS from a single coordinated system</li>
+                    <li>Automated enrichment pipeline processing thousands of records through a 10-tier data waterfall</li>
+                    <li>Scored memory system with context compilation across agent sessions — agents remember what they learned</li>
+                    <li>Sub-agents spawn, execute, verify, and report back — no human in the loop for routine tasks</li>
+                </ul>
+            </div>
 
-                <div class="pricing-card coming-soon">
-                    <span class="tier-badge enterprise">Enterprise</span>
-                    <h3>Full Optimization Suite</h3>
-                    <div class="pricing-price">$1,297<span>/month</span></div>
-                    <p class="competitor-limit">Track 25+ Competitors</p>
-                    <div class="delivery-method">📧 Daily + 📊 Dashboard + 🚀 Optimization</div>
-                    <ul>
-                        <li>✓ Everything in Growth PLUS:</li>
-                        <li>✓ <strong>Campaign optimization access</strong></li>
-                        <li>✓ Waste identification reports</li>
-                        <li>✓ ROI improvement tracking</li>
-                        <li>✓ Implementation checklists</li>
-                        <li>✓ Platform-specific guidance</li>
-                        <li>✓ Daily intelligence briefs</li>
-                        <li>✓ Dedicated success manager</li>
-                    </ul>
-                    <button class="pricing-cta" onclick="buyPlan(event, 'enterprise')">Subscribe Now</button>
-                    <p style="font-size: 0.9rem; color: #6b7280; margin-top: 15px;">Requires platform authorization</p>
+            <div class="proof-stats-row">
+                <div class="proof-stat">
+                    <span class="num">15+</span>
+                    <span class="label">AI agents</span>
+                </div>
+                <div class="proof-stat">
+                    <span class="num">5</span>
+                    <span class="label">Distribution channels</span>
+                </div>
+                <div class="proof-stat">
+                    <span class="num">10-tier</span>
+                    <span class="label">Enrichment waterfall</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="why-us-section" id="how-it-works">
+    <section class="about-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Why Subscription Intelligence Wins</h2>
-                <p>One-time audits are like yesterday's newspaper. Here's why smart businesses subscribe.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">📈</span>
-                    <h3>Always Current</h3>
-                    <p>Your competitors update weekly. So does your intelligence. Never work with stale data again.</p>
+            <div class="about-inner">
+                <h2>Who we are</h2>
+
+                <p>Small AI-native engineering team based in Sydney, Australia. We don't have a sales deck. We have a running system.</p>
+
+                <div class="about-callout">
+                    "Our main tool is Claude Code. We ship production features in days, not sprints."
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎯</span>
-                    <h3>Right-Sized Plans</h3>
-                    <p>Only pay for what you need. Track 3 competitors or 30. Monthly reports or real-time dashboards.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
-                    <h3>Upgrade Anytime</h3>
-                    <p>Start small, grow big. Upgrade from Startup to Growth when you need dashboards. No penalties.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔄</span>
-                    <h3>No Lock-In</h3>
-                    <p>Month-to-month flexibility. Cancel anytime. Change plans instantly. Your business, your terms.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🇦🇺</span>
-                    <h3>Australian Built</h3>
-                    <p>Local support that understands Australian markets. No overseas call centers. Real humans who get it.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">💰</span>
-                    <h3>Clear ROI</h3>
-                    <p>Average client finds $3,000+ in monthly waste. Your subscription pays for itself in days, not months.</p>
-                </div>
+
+                <p>We use the latest AI coding tools properly — not as autocomplete, but as a second engineer on every task. That changes the speed equation significantly. A two-person team moves like a ten-person team when the tooling is right.</p>
+
+                <p>We build AI systems that work. That means they handle edge cases, they have real error handling, they run on a schedule without someone babysitting them, and they do something that matters to the business that hired us.</p>
+
+                <p><strong>Available for contract work.</strong> We take on 3–6 month engagements where there's a real problem to solve. Not maintenance work. Not "add a button." If you have something that needs to be built from scratch and you want it done fast and right, that's the conversation.</p>
+
+                <span class="availability-badge">Taking new engagements — contact us</span>
             </div>
         </div>
     </section>
 
-    <section class="testimonials-section">
+    <section class="contact-section" id="contact">
         <div class="container">
-            <div class="section-header">
-                <h2>Subscription Success Stories</h2>
-                <p>Real Australian businesses getting ahead with ongoing intelligence</p>
-            </div>
-            <div class="testimonial">
-                <p class="testimonial-text">
-                    "Started with Startup tier, upgraded to Growth after 2 months. The dashboard alone is worth the price. 
-                    Found gaps our competitors missed - gained 30% market share in 6 months."
-                </p>
-                <p class="testimonial-author">— Sarah Chen, Melbourne Tech Startup</p>
-            </div>
-            <div class="testimonial">
-                <p class="testimonial-text">
-                    "The monthly reports keep us honest about our position. No more guessing. 
-                    Growth tier dashboard is open on my screen all day. Best $697 we spend."
-                </p>
-                <p class="testimonial-author">— Marcus Webb, Brisbane Agency Owner</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2 style="margin-bottom: 20px;">Ready to Stay Ahead Every Month?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 40px; opacity: 0.95;">
-                Join Australian businesses who never get blindsided by competitors again. 
-                Choose your tier, get your first report in 24 hours.
-            </p>
-            <a href="#pricing" class="cta-primary" style="font-size: 1.3rem; padding: 20px 50px;">
-                Choose Your Intelligence Level
-            </a>
-            <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">
-                No setup fees • Cancel anytime • Upgrade or downgrade instantly
-            </p>
+            <h2>Get in touch.</h2>
+            <p>We'll show you what we've built. If it fits what you need, we'll tell you honestly.</p>
+            <a href="mailto:david.stephens@keiracom.com" class="contact-email">david.stephens@keiracom.com</a>
+            <p class="contact-note">No form. No sales funnel. Just email.</p>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Subscription Tiers</h4>
-                    <a href="#startup">Startup - $297/month</a>
-                    <a href="#growth">Growth - $697/month</a>
-                    <a href="#enterprise">Enterprise - $1,297/month</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <a href="#about">About Us</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <a href="mailto:hello@keiracom.com">hello@keiracom.com</a>
-                    <a href="tel:+61234567890">+61 2 3456 7890</a>
-                    <p style="margin-top: 20px; color: #9ca3af;">
-                        <strong>Keiracom Pty Ltd</strong><br>
-                        ABN: [Your ABN]<br>
-                        Sydney, Australia
-                    </p>
-                </div>
-            </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Keiracom Pty Ltd. Subscription intelligence for Australian business.</p>
+                <p>&copy; 2026 <a href="/">Keiracom Pty Ltd</a> — Sydney, Australia. AI engineering consultancy.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Global variables
-        let stripe = null;
-        let priceIds = null;
-
-        // Initialize Stripe when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded, initializing Stripe...');
-            
-            // Initialize Stripe immediately
-            try {
-                stripe = Stripe('pk_test_51RVQCqRGgtVWy0GyCO8m0zEbfSf8xOlGryRdFI5qKO2QPZAuTPknaYdF3z5wpXwuBr5OgPZhzhhVrZoLhZR2QMcm000dwSbe7c');
-                console.log('✅ Stripe initialized successfully');
-                
-                // Set up price IDs
-                priceIds = {
-                    startup: 'price_1RVQG2RGgtVWy0GyHzmSqfJJ',
-                    growth: 'price_1RVQGzRGgtVWy0GyOmXiTc1x',
-                    enterprise: 'price_1RVQHjRGgtVWy0GyP2q6v4Ot'
-                };
-                console.log('✅ Price IDs configured');
-                
-            } catch (error) {
-                console.error('❌ Failed to initialize Stripe:', error);
-            }
-        });
-
-        // Function to handle plan purchases
-        function buyPlan(event, planType) {
-            // Prevent default form submission
-            if (event) {
-                event.preventDefault();
-            }
-            
-            console.log('buyPlan called for:', planType);
-            
-            // Check if Stripe is initialized
-            if (!stripe) {
-                alert('Payment system is not loaded. Please refresh the page and try again.');
-                console.error('Stripe not initialized');
-                return;
-            }
-            
-            // Check if price IDs are set
-            if (!priceIds) {
-                alert('Price configuration error. Please refresh the page and try again.');
-                console.error('Price IDs not configured');
-                return;
-            }
-            
-            // Get the price ID for the selected plan
-            const priceId = priceIds[planType];
-            if (!priceId) {
-                alert('Invalid plan selected: ' + planType);
-                console.error('Invalid plan type:', planType);
-                return;
-            }
-            
-            console.log('Using price ID:', priceId);
-            
-            // Get the button element
-            let button = null;
-            let originalText = '';
-            
-            if (event && event.target) {
-                button = event.target;
-                originalText = button.textContent;
-                button.textContent = 'Loading...';
-                button.disabled = true;
-            }
-            
-            // Redirect to Stripe Checkout
-            stripe.redirectToCheckout({
-                lineItems: [{
-                    price: priceId,
-                    quantity: 1
-                }],
-                mode: 'subscription',
-                successUrl: 'https://keiracom.com/success',
-                cancelUrl: 'https://keiracom.com/cancel'
-            }).then(function(result) {
-                if (result.error) {
-                    // Show error to customer
-                    alert('Error: ' + result.error.message);
-                    console.error('Stripe error:', result.error);
-                    
-                    // Restore button state
-                    if (button) {
-                        button.textContent = originalText;
-                        button.disabled = false;
-                    }
-                }
-            }).catch(function(error) {
-                console.error('Checkout error:', error);
-                alert('An error occurred. Please try again.');
-                
-                // Restore button state
-                if (button) {
-                    button.textContent = originalText;
-                    button.disabled = false;
-                }
-            });
-        }
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-
-        // Debug function for console testing
-        window.testStripe = function() {
-            console.log('Stripe object:', stripe);
-            console.log('Price IDs:', priceIds);
-            console.log('Stripe loaded:', !!stripe);
-            console.log('Can make payments:', !!(stripe && priceIds));
-        };
-        
-        console.log('Page ready. Type testStripe() in console to check status.');
     </script>
 </body>
 </html>
